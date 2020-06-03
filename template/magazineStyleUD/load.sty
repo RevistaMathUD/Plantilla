@@ -1,0 +1,39 @@
+\DeclareRobustCommand{\versiontemplatemagazinestyleud}{1.0}
+%-------inicio configuraciones -------------
+\appendtographicspath{{\pathtemplate/images/}}
+\geometry{letterpaper}
+\geometry{textwidth=390pt}
+%\geometry{headheight=15pt}
+\RequirePackage{sectsty}
+\RequirePackage[explicit,calcwidth]{titlesec}
+\RequirePackage{fancyhdr}
+\RequirePackage{titletoc}
+\RequirePackage{fontawesome}
+\RequirePackage{eso-pic} %portada
+\ifwindows
+	\RequirePackage{\pathtemplate/install}	
+\fi
+\iflinux
+	\RequirePackage{\pathtemplate/install}
+\fi
+\ifwindows
+	\RequirePackage{xstring}
+	\StrSubstitute{\pathtemplate}{/}{\\}[\temppaththeme]
+	\AtEndDocument{\ShellEscape{del \temppaththeme\\lib\\*.sty}}
+\fi
+\iflinux
+	\AtEndDocument{\ShellEscape{rm \pathtemplate/lib/*.sty}}
+\fi
+%-------------referencias------------
+\hypersetup{
+	colorlinks,
+	allcolors = referenceLink,
+	pdfpagelabels=true 
+}
+\makeatletter
+\let\Hy@linktoc\Hy@linktoc@none
+\makeatother
+%----------bibliografia----------------
+\RequirePackage[sectionbib]{bibunits}
+\defaultbibliographystyle{abbrv}
+\bibliographyunit[\chapter]
