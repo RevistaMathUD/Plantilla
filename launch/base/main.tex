@@ -1,0 +1,53 @@
+\documentclass[11pt,oneside]{book}%
+\usepackage[spanish,activeacute]{babel}%idioma document
+\usepackage[utf8]{inputenc}%set input encoding
+\usepackage{Plantilla10.1/lib/designAcademycos}
+\designacademycos{
+	root=Plantilla10.1/, 
+	template=magazineStyleUD, 
+%	enginedownload=wget,
+}
+\usepackage[T1]{fontenc}
+\usepackage[light,math]{kurier}%http://www.tug.dk/FontCatalogue/
+\usepackage{src/initialVariables}
+\def\<carpetaArticulo>{articles/<carpetaArticulo>}%carpeta de articulo
+\def\<carpetaArticulo>Images{\<carpetaArticulo>/images}%carpeta de imagenes de articulo
+\usepackage{\<carpetaArticulo>/load}
+\datemplate{
+	sourceBibliography=references/<carpetaArticulo>, 
+%	platform=overleaf,
+}
+\def\templatelaunch{1.0}
+\begin{document}
+	\frontmatter
+		\import{\pathtemplate/}{cover.tex}
+		\tableofcontents
+	\mainmatter
+	\import{\<carpetaArticulo>/}{article.tex}
+\end{document}
+%------------------------------------------------
+%-----------Overleaf y MacOS---------------------
+%------------------------------------------------
+%Si esta trabajando en Overleaf o MacOS
+%descomente la linea 18 Recuerde que no dispone 
+%de diseño
+%------------------------------------------------
+%-----------Linux--------------------------------
+%------------------------------------------------
+%Si esta trabajando en Linux bajo TeXLive, 
+%descomente la linea 8, si produce error, 
+%debe instalar wget
+%------------------------------------------------
+%-----------Windows------------------------------
+%------------------------------------------------
+%Si esta trabajando en Windows con una distribución 
+%distinta a MiKTeX (actualizada) debe descargar wget
+%y agregar la ruta de instalación a la variable de 
+%entorno PATH y descomentar la linea 8
+%------------------------------------------------
+%-----------Uso y recomendaciones----------------
+%------------------------------------------------
+%--Se recomienda leer el manual de usuario completamente
+%--Plantilla diseñada para un mejor rendimiento en Linux
+%--Compile bajo pdflatex y la bandera -shell-escape
+%------------------------------------------------

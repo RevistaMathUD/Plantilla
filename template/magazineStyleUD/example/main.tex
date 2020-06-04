@@ -1,7 +1,12 @@
 \documentclass[11pt,oneside]{book}%
 \usepackage[spanish,activeacute]{babel}%idioma document
 \usepackage[utf8]{inputenc}%set input encoding
-\usepackage[root=../../../, template=magazineStyleUD, enginedownload=wget]{../../../lib/designAcademycos}
+\usepackage{../../../lib/designAcademycos}
+\designacademycos{
+	root=../../../, 
+	template=magazineStyleUD, 
+	enginedownload=wget
+}
 \usepackage[T1]{fontenc}
 \usepackage[light,math]{kurier}%http://www.tug.dk/FontCatalogue/
 \usepackage{src/initialVariables}
@@ -9,12 +14,12 @@
 \def\diffusionEquationImages{\diffusionEquation/images}%carpeta de imagenes de articulo
 \usepackage{\diffusionEquation/load}
 \datemplate{
-%	sourceBibliography=references/diffusionEquation,
+	sourceBibliography=references/diffusionEquation, 
 %	platform=overleaf
 }
 \begin{document}
 	\frontmatter
-%		\import{\pathtemplate/}{cover.tex} 
+		\import{\pathtemplate/}{cover.tex}
 		\tableofcontents
 	\mainmatter
 	\import{\diffusionEquation/}{article.tex}
