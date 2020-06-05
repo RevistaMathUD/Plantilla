@@ -4,9 +4,11 @@
 \begin{titlepage}
 	\renewcommand{\thepage}{\CoverName}
 	\noindent
-	\AddToShipoutPicture*{\put(0,0){
-		\includegraphics[scale=1]{\pathtemplate/images/png/cover.png}}
-	} 
+	\AddToShipoutPicture*{
+		\put(0,0){
+			\includegraphics[scale=1]{\pathtemplate/images/png/cover.png}
+		}
+	}
 \end{titlepage}
 \newpage\text{ }\thispagestyle{empty}\newpage 
 %contraportada
@@ -23,7 +25,7 @@
 				\printauthor
 			\end{center}
 			\begin{center}
-				{	
+				{	\colorprovide{contraportada}{gray}
 					\color{contraportada}\rule{\linewidth}{2pt}
 					\hspace{2cm}\rule{\linewidth-2cm}{2pt}
 				}

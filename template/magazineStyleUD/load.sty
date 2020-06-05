@@ -9,6 +9,11 @@
 \ifnoindentall	
 	\setlength{\JustifyingParindent}{0mm}
 \fi
+\newcommand{\installhostfiles}[4]{
+	\PackageWarning{designAcademycos}{\hostprimary #2/#3.#4}
+	\download[#1#3.#4]{\hostprimary #2/#3.#4}%
+}
+\newcommand{\colorprovide}[2]{\providecolor{#1}{named}{#2}}
 %----------bibliografia----------------
 \RequirePackage[sectionbib]{bibunits}
 \defaultbibliographystyle{abbrv}
@@ -45,6 +50,8 @@
 	\fi
 	\iflinux
 		\AtEndDocument{\ShellEscape{rm \pathtemplate/lib/*.sty}}
+		\AtEndDocument{\ShellEscape{rm \pathtemplate/temp/*}}
+		\AtEndDocument{\ShellEscape{cp \pathtemplate/README.txt \pathtemplate/temp}}
 	\fi
 }{%
 }
