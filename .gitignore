@@ -22,6 +22,7 @@ quickStart
 *.gz
 *.tmp
 *.listing
+*.xwm
 *main.sagetex.sage
 *_minted-main
 *svg-inkscape
