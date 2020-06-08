@@ -10,15 +10,14 @@
 	\setlength{\JustifyingParindent}{0mm}
 \fi
 \newcommand{\installhostfiles}[4]{
-	\PackageWarning{designAcademycos}{\hostprimary #2/#3.#4}
 	\download[#1#3.#4]{\hostprimary #2/#3.#4}%
 }
 \newcommand{\colorprovide}[2]{\providecolor{#1}{named}{#2}}
 %----------bibliografia----------------
 \RequirePackage[sectionbib]{bibunits}
-\defaultbibliographystyle{abbrv}
+\defaultbibliographystyle{\bibliographystyletemplate}
 \bibliographyunit[\chapter]
-\defaultbibliography{\srcBibliography}
+\defaultbibliography{\bibliographysrc}
 %-------------------------------------------
 %-------FIN configuraciones ----------------
 %-------------------------------------------
@@ -33,26 +32,39 @@
 \RequirePackage{\pathtemplate/lib/base/stylesTCB10.1}
 \RequirePackage{\pathtemplate/lib/base/commands}
 \ifthenelse{\equal{\platformtype}{pc}}{
+	\ifthenelse{\equal{\compilefrom}{temp}}{
+		\ifwindows
+			\RequirePackage{\pathtemplate/install}	
+		\fi
+		\iflinux
+			\RequirePackage{\pathtemplate/install}
+		\fi
+		\ifwindows
+			\RequirePackage{xstring}
+			\StrSubstitute{\pathtemplate}{/}{\\}[\temppaththeme]
+			\AtEndDocument{\ShellEscape{del \temppaththeme\\temp\\lib\\*.sty}}
+			\AtEndDocument{\ShellEscape{del \temppaththeme\\temp\\*.sty}}
+			\AtEndDocument{\ShellEscape{del \temppaththeme\\temp\\*.tex}}
+			\AtEndDocument{\ShellEscape{del \temppaththeme\\temp\\*.png}}
+%			\AtEndDocument{\ShellEscape{copy \temppaththeme\\README.txt \temppaththeme/temp}}
+		\fi
+		\iflinux
+			\AtEndDocument{\ShellEscape{rm \pathtemplate/temp/lib/*.sty}}
+			\AtEndDocument{\ShellEscape{rm \pathtemplate/temp/*.sty}}
+			\AtEndDocument{\ShellEscape{rm \pathtemplate/temp/*.tex}}
+			\AtEndDocument{\ShellEscape{rm \pathtemplate/temp/*.png}}
+%			\AtEndDocument{\ShellEscape{cp \pathtemplate/README.txt \pathtemplate/temp}}
+		\fi
+	}{}
+	\RequirePackage{\pathtemplate/\compilefrom/colors}
+	\RequirePackage{\pathtemplate/\compilefrom/lib/chapter10.1}
+	\RequirePackage{\pathtemplate/\compilefrom/lib/sectionAndHeader10.1}
+	\RequirePackage{\pathtemplate/\compilefrom/lib/tableOfContent10.1}
+	\RequirePackage{\pathtemplate/\compilefrom/lib/environmentsStyle10.1}
 	\hypersetup{
 		colorlinks,
 		allcolors = referenceLink,
 	}
-	\ifwindows
-		\RequirePackage{\pathtemplate/install}	
-	\fi
-	\iflinux
-		\RequirePackage{\pathtemplate/install}
-	\fi
-	\ifwindows
-		\RequirePackage{xstring}
-		\StrSubstitute{\pathtemplate}{/}{\\}[\temppaththeme]
-		\AtEndDocument{\ShellEscape{del \temppaththeme\\lib\\*.sty}}
-	\fi
-	\iflinux
-		\AtEndDocument{\ShellEscape{rm \pathtemplate/lib/*.sty}}
-		\AtEndDocument{\ShellEscape{rm \pathtemplate/temp/*}}
-		\AtEndDocument{\ShellEscape{cp \pathtemplate/README.txt \pathtemplate/temp}}
-	\fi
 }{%
 }
 \RequirePackage{\pathtemplate/lib/base/environmentsTCB10.1}

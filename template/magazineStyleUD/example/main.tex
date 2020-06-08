@@ -14,12 +14,15 @@
 \def\diffusionEquationImages{\diffusionEquation/images}%carpeta de imagenes de articulo
 \usepackage{\diffusionEquation/load}
 \datemplate{
-	sourceBibliography=references/diffusionEquation, 
-%	platform=overleaf
+	bibliographySource=references/diffusionEquation, 
+	platform=overleaf,
+	compileFrom=local,
+	theme=secondary	
 }
+\usepackage{lipsum}
 \begin{document}
 	\frontmatter
-		\import{\pathtemplate/}{cover.tex}
+%		\import{\pathtemplate/\compilefrom/}{cover.tex}
 		\tableofcontents
 	\mainmatter
 	\import{\diffusionEquation/}{article.tex}
