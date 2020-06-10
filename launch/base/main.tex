@@ -14,13 +14,13 @@
 \def\<carpetaArticulo>Images{\<carpetaArticulo>/images}%carpeta de imagenes de articulo
 \usepackage{\<carpetaArticulo>/load}
 \datemplate{
-	sourceBibliography=references/<carpetaArticulo>, 
+	bibliographySource=references/<carpetaArticulo>, 
 %	platform=overleaf,
 }
 \def\templatelaunch{1.0}
 \begin{document}
 	\frontmatter
-%		\import{\pathtemplate/}{cover.tex}
+		\import{\pathtemplate/\compilefrom/}{cover.tex}
 		\tableofcontents
 	\mainmatter
 	\import{\<carpetaArticulo>/}{article.tex}
@@ -29,8 +29,8 @@
 %-----------Overleaf y MacOS---------------------
 %------------------------------------------------
 %Si esta trabajando en Overleaf o MacOS
-%descomente la linea 18 Recuerde que no dispone 
-%de diseño
+%descomente la linea 18, y comente la linea 23 (No eliminar).
+%Esta versión que no dispone de diseño
 %------------------------------------------------
 %-----------Linux--------------------------------
 %------------------------------------------------
@@ -49,5 +49,5 @@
 %------------------------------------------------
 %--Se recomienda leer el manual de usuario completamente
 %--Plantilla diseñada para un mejor rendimiento en Linux
-%--Compile bajo pdflatex y la bandera -shell-escape
+%--Compile bajo pdflatex y con la bandera -shell-escape
 %------------------------------------------------
