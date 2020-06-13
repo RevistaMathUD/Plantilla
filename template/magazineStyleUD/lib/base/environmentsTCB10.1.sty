@@ -2,18 +2,17 @@
 % INICIO declaracion de cajas
 %-------------------------------------------
 \newtheorem*{remark}{Observación}
-%\ifthenelse{\equal{\platformtype}{pc}}
-%{%
-	\newtcbtheorem[number within=chapter]{theorem}{Teorema}
-	{mytheoStyle, generalStyle}{th}
-	\newtcbtheorem[number within=chapter]{definition}{Definición}
-	{mydefStyle, generalStyle}{def}
-	\newtcbtheorem[number within=chapter]{corollary}{Corolario}
-	{mycorStyle, generalStyle}{cor}
-	\newtcbtheorem[number within=chapter]{lemma}{Lema}
-	{mylemStyle, generalStyle}{lem}
-	\newtcbtheorem[number within=chapter]{example}{Ejemplo}
-	{myexamStyle}{exam}
+\newtcbtheorem[number within=chapter]{theorem}{Teorema}
+{mytheoStyle, generalStyle}{th}
+\newtcbtheorem[number within=chapter]{definition}{Definición}
+{mydefStyle, generalStyle}{def}
+\newtcbtheorem[number within=chapter]{corollary}{Corolario}
+{mycorStyle, generalStyle}{cor}
+\newtcbtheorem[number within=chapter]{lemma}{Lema}
+{mylemStyle, generalStyle}{lem}
+\newtcbtheorem[number within=chapter]{example}{Ejemplo}
+{myexamStyle}{exam}
+\newtcolorbox{freebox}[1][]{myboxStyle, title={#1}}
 %-------------------------------------------
 % FIN declaracion de cajas
 %-------------------------------------------
