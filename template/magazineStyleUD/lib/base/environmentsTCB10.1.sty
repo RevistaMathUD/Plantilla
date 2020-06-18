@@ -1,17 +1,33 @@
 %-------------------------------------------
 % INICIO declaracion de cajas
 %-------------------------------------------
-\newtcbtheorem[number within=chapter]{theorem}{Teorema}
-{mytheoStyle, generalStyle}{th}
-\newtcbtheorem[number within=chapter]{definition}{Definición}
-{mydefStyle, generalStyle}{def}
-\newtcbtheorem[number within=chapter]{corollary}{Corolario}
-{mycorStyle, generalStyle}{cor}
-\newtcbtheorem[number within=chapter]{lemma}{Lema}
-{mylemStyle, generalStyle}{lem}
-\newtcbtheorem[number within=chapter]{example}{Ejemplo}
-{myexamStyle}{exam}
-\newtcolorbox{freebox}[1][]{myboxStyle, title={#1}}
+\ifthenelse{\equal{\printtemplate}{magazineStyleUD}}{%important
+	\newtcbtheorem[number within=chapter]{theorem}{Teorema}
+	{mytheoStyle, generalStyle}{th}
+	\newtcbtheorem[number within=chapter]{definition}{Definición}
+	{mydefStyle, generalStyle}{def}
+	\newtcbtheorem[number within=chapter]{corollary}{Corolario}
+	{mycorStyle, generalStyle}{cor}
+	\newtcbtheorem[number within=chapter]{lemma}{Lema}
+	{mylemStyle, generalStyle}{lem}
+	\newtcbtheorem[number within=chapter]{example}{Ejemplo}
+	{myexamStyle}{exam}
+	\newtcolorbox{freebox}[1][]{myboxStyle, title={#1}}
+}{}
+
+\ifthenelse{\equal{\printtemplate}{basicThesis}}{%important
+	\newtcbtheorem[number within=chapter]{theorem}{Teorema}
+	{myBoxDefault}{th}
+	\newtcbtheorem[number within=chapter]{definition}{Definición}
+	{myBoxDefault}{def}
+	\newtcbtheorem[number within=chapter]{corollary}{Corolario}
+	{myBoxDefault}{cor}
+	\newtcbtheorem[number within=chapter]{lemma}{Lema}
+	{myBoxDefault}{lem}
+	\newtcbtheorem[number within=chapter]{example}{Ejemplo}
+	{myexamStyle}{exam}
+	\newtcolorbox{freebox}[1][]{myboxStyle, title={#1}}
+}{}
 %-------------------------------------------
 % FIN declaracion de cajas
 %-------------------------------------------

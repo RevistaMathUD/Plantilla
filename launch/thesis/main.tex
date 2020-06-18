@@ -1,0 +1,25 @@
+\documentclass[oneside,letterpaper,12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, activeacute]{babel} 
+\usepackage{Plantilla10.1/lib/designAcademycos}
+\designacademycos{
+	root=Plantilla10.1/, 
+	template=basicThesis
+}
+\usepackage{cmbright}
+\usepackage[T1]{fontenc}%http://www.tug.dk/FontCatalogue/
+\usepackage{src/initialVariables} 	
+\usepackage{src/commands}
+\begin{document}
+	\frontmatter	
+		\import{src/}{cover.tex} 
+		\import{src/}{beginning.tex}
+		\tableofcontents
+	\mainmatter
+	\import{chapters/}{introduccion.tex}
+	\bibliography{src/bibliography}
+	\bibliographystyle{unsrt}
+%	\nocite{*}
+	\addcontentsline{toc}{chapter}{Bibliografía}
+%	\printindex´
+\end{document}

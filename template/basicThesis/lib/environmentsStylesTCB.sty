@@ -1,0 +1,100 @@
+%-------------------------------------------
+% INICIO estilos cajas tcolorbox
+%-------------------------------------------
+%-------teoremas----------------------------
+\tcbset{
+	myBoxDefault/.style={
+		theorem style=plain,
+		enhanced, title=My title,
+		interior style={
+			top color= backBoxContentTheoU,
+			bottom color= backBoxContentTheoD,
+		},
+		coltitle=colorTitleTheo,
+		fonttitle=\normalsize\bfseries,
+		fontupper=\normalsize,
+		arc=0.5mm,boxrule=1mm,
+		frame hidden,
+		borderline={0mm}{0mm}{borderTheo},
+		breakable
+		%show bounding box
+	}
+}
+%-----------------ejemplos----------------
+\tcbset{
+	myexamStyle/.style={
+		empty,
+		title=My title,
+		attach boxed title to top left=,
+		fonttitle=\normalsize\bfseries,
+		boxed title style={
+			empty,size=minimal,
+			toprule=2pt,
+			top=4pt,
+			overlay={}
+		},
+		coltitle=textExam,
+		parbox=false,
+		boxsep=0pt,
+		left=0pt,
+		right=3mm,
+		top=4pt,
+		breakable,
+		pad at break*=0mm,
+		vfill before first,
+		overlay unbroken={
+			\draw[lineExam,line width=0.02cm]
+			([xshift=-0.5pt]frame.south east)--(frame.south west); 
+		},
+		overlay first={},
+		overlay middle={},
+		overlay last={
+			\draw[lineExam,line width=0.02cm]
+			([xshift=-0.5pt]frame.south east)--(frame.south west); 
+		},
+	}
+}
+%-----------------caja libre--------------------
+\tcbset{
+	myboxStyle/.style={
+		enhanced,
+		arc=0.5mm,boxrule=1mm,
+		frame hidden,
+		interior style={
+			top color= backBoxContentCajaU,
+			bottom color= backBoxContentCajaD,
+		},
+		fonttitle=\normalsize\bfseries,
+		borderline={0mm}{0mm}{borderCaja},
+		coltitle=colorTitleCaja,
+		attach boxed title to top left={
+			xshift=2mm,
+			yshift=-0.50mm
+		},
+		breakable,
+		boxed title style={
+			skin=enhancedfirst jigsaw,
+			size=small,arc=1mm,bottom=-1mm,
+			boxrule=0.1mm,
+			borderline={0.1mm}{0mm}{colorBorderTitleCaja},
+			interior style={
+				fill=none,
+				top color=backBoxTitleCajaU,
+				bottom color=backBoxTitleCajaD,
+			}
+		}
+	}
+}
+%------------------demostracion------------
+\tcolorboxenvironment{proof}{%'proof'from'amsthm'
+	blanker,
+	breakable,
+	left=5mm,
+	before skip=10pt,
+	after skip=10pt,
+	borderline west={1mm}{0pt}{titleProof}
+}
+\renewcommand\qedsymbol{\textcolor{titleProof}{\openbox}} 
+%-------------------------------------------
+% FIN estilos cajas tcolorbox
+%-------------------------------------------

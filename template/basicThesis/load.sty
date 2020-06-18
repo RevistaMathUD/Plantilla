@@ -1,0 +1,33 @@
+\DeclareRobustCommand{\versiontemplatetesisbasic}{1.0}
+%-------inicio configuraciones -------------
+\setlength{\parindent}{2cm} %sangria
+\geometry{margin=2.5cm}
+\hypersetup{
+	colorlinks,
+	allcolors = referenceLink,
+	pdfpagelabels=true 
+}
+\makeatletter
+\let\Hy@linktoc\Hy@linktoc@none
+\makeatother
+\RequirePackage{enumerate}
+\RequirePackage{endnotes}
+%-------fin configuraciones ----------------
+%-------------------------------------------
+% INICIO estilo
+%-------------------------------------------
+\RequirePackage{fancyhdr}	
+\RequirePackage{sectsty}
+\RequirePackage[Sonny]{fncychap}
+\RequirePackage{\pathtemplate/lib/colors}
+\RequirePackage{\pathtemplate/lib/environmentsStylesTCB}
+\RequirePackage{\pathroottemplates/magazineStyleUD/lib/base/environmentsTCB10.1}%heredado de magazineStyleUD
+\RequirePackage{\pathtemplate/lib/sectionAndHeader}
+\RequirePackage{cancel}
+\renewcommand\CancelColor{\color{colorPer2}}
+\setlength{\JustifyingParindent}{0mm}
+%-------------------------------------------
+% FIN estilo
+%-------------------------------------------
+\RequirePackage{imakeidx}
+\makeindex
