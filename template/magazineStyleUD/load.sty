@@ -34,6 +34,7 @@
 \ifthenelse{\equal{\platformtype}{pc}}{
 	\ifthenelse{\equal{\compilefrom}{temp}}{
 		\def\namefoldertheme{themeDownload}%!important
+		\def\suffixmin{.min}%!important
 		\RequirePackage{\pathtemplate/install}
 		\ifwindows
 			\RequirePackage{xstring}
@@ -52,13 +53,14 @@
 %			\AtEndDocument{\ShellEscape{cp \pathtemplate/README.txt \pathtemplate/temp}}
 		\fi
 	}{
-		\def\namefoldertheme{\magazinetheme}
+		\def\namefoldertheme{\magazinetheme}%!important
+		\def\suffixmin{}
 	}
 	\RequirePackage{\pathtemplate/\compilefrom/themes/\namefoldertheme/colors}
-	\RequirePackage{\pathtemplate/\compilefrom/lib/chapter10.1}
-	\RequirePackage{\pathtemplate/\compilefrom/lib/sectionAndHeader10.1}
-	\RequirePackage{\pathtemplate/\compilefrom/lib/tableOfContent10.1}
-	\RequirePackage{\pathtemplate/\compilefrom/lib/environmentsStyle10.1}
+	\RequirePackage{\pathtemplate/\compilefrom/lib/chapter10.1\suffixmin}
+	\RequirePackage{\pathtemplate/\compilefrom/lib/sectionAndHeader10.1\suffixmin}
+	\RequirePackage{\pathtemplate/\compilefrom/lib/tableOfContent10.1\suffixmin}
+	\RequirePackage{\pathtemplate/\compilefrom/lib/environmentsStyle10.1\suffixmin}
 	\hypersetup{
 		colorlinks,
 		allcolors = referenceLink,
