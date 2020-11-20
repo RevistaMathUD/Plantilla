@@ -20,11 +20,13 @@
 	numeralchapter=true,
 %	theme=secondary	
 }
+%\def\magafzinetheme{asss}
 \usepackage{lipsum}
 \begin{document}
 	\frontmatter
-		\import{\pathtemplate/\compilefrom/}{cover.tex}
+		\import{\pathtemplate/\compilefrom/themes/\namefoldertheme/}{cover.tex}
 		\tableofcontents
 	\mainmatter
 	\import{\diffusionEquation/}{article.tex}
+%	\magazinetheme
 \end{document}
